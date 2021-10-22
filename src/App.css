@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.app-wrapper{
+  width: 1200px;
+  display: grid;
+  grid-template-areas:
+  "h h"
+  "n c"
+  ;
+  margin: 0 auto;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  /* grid-gap:10px; */
+}
+
+.app_wrapper_content{
+    grid-area: c;
+    border: 2px solid red;
+    background-color:gold;
+  
+}
