@@ -2,6 +2,14 @@ import React from "react";
 import s from "./Dialogs.module.css"
 import '../../App'
 import { NavLink } from "react-router-dom";
+import DialogItem from "./DialogItem/DialogItem";
+import Message from "./Message/Message";
+
+
+
+
+
+
 
 const Dialogs =()=>{
 
@@ -9,17 +17,14 @@ const Dialogs =()=>{
      
         <div className={s.dialogs}>
             <div className={s.dialogs_items}>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/1">Andrey</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/2">qqqq</NavLink>
-                </div>
+                <DialogItem name ="andr" id="1"/>
+                <DialogItem name ="den" id="2"/>
+                <DialogItem name ="dim" id="3"/>
             </div>
             <div className={s.messages}>
-                <div className={s.message}>Hi</div>
-                <div className={s.message}>HDFGSD</div>
-                <div className={s.message}>HiSDFDSFSDFDS</div>
+                <Message message="Hi"/>
+                <Message message="Hello"/>
+                <Message message = "ssss" />
             </div>
         </div>
        

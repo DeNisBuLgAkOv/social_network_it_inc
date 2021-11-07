@@ -1,18 +1,19 @@
 import React from 'react';
 import MyPosts from './MyPosts/MyPosts';
 import s from './Profile.module.css'
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile =()=>{
+  let posts =[
+    {id:1, message:"hi", likeCount:12},
+    {id:2, message:"hid", likeCount:12},
+    {id:3, message:"hifddf", likeCount:20},
+    {id:4, message:"hisdfdsf", likeCount:14},
+  ]
     return(
-        <div >
-        <div>
-            <img src="https://cdn1.ozone.ru/s3/multimedia-a/c1200/6057606094.jpg"/>
-        </div>
-        <div>
-          ava+ description
-        </div>
-       <MyPosts/>
-
+      <div >
+          <ProfileInfo/>
+          <MyPosts posts={posts}/>
       </div>
     )
 }
