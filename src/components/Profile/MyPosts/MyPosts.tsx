@@ -1,20 +1,15 @@
 import React from 'react'
 import s from './MyPosts.module.css'
 import Posts from './Posts/Posts'
+import { PostsType } from '../../../redux/state'
 
-
-type MyPostsType ={
-  posts:Array<PostsType>
-}
-
-type PostsType ={
-  id:number
-  message:string
-  likeCount:number
+type PropsType={
+  posts:PostsType[]
 }
 
 
-const MyPosts: React.FC<MyPostsType> = (props)=>{
+
+const MyPosts: React.FC<PropsType> = (props)=>{
   // const MyPosts = (props:any)=>{
   // let posts =[
   //   {id:1, message:"hi", likeCount:12},

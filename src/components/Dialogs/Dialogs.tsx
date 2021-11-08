@@ -4,27 +4,29 @@ import '../../App'
 import { NavLink } from "react-router-dom";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import { DialogsPageType } from "../../redux/state";
 
 
+type Propstype={
+    dialogsPage: DialogsPageType
+}
 
 
+const Dialogs  =(props:Propstype)=>{
 
 
+    let dialogsElements = props.dialogsPage.dialogs.map(el => <DialogItem name={el.name} id={el.id}/>)
 
-const Dialogs =()=>{
+    let messagesElements = props.dialogsPage.messages.map(el => <Message message ={el.message}/>)
 
     return(
      
         <div className={s.dialogs}>
             <div className={s.dialogs_items}>
-                <DialogItem name ="andr" id="1"/>
-                <DialogItem name ="den" id="2"/>
-                <DialogItem name ="dim" id="3"/>
-            </div>
+                {dialogsElements}
+            </div>    
             <div className={s.messages}>
-                <Message message="Hi"/>
-                <Message message="Hello"/>
-                <Message message = "ssss" />
+                {messagesElements}
             </div>
         </div>
        
