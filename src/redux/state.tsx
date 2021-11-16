@@ -1,4 +1,5 @@
 import React from "react";
+import { rerenderEntireTree } from "../render";
 
 
 
@@ -66,5 +67,16 @@ export type MainStateType={
     }
   }
 
+
+
+ export let addPost =(postMessage:string)=>{
+    let newPost:PostsType={
+      id:5,
+      message:postMessage,
+      likeCount:0
+    }
+    state.profilePage.posts.push(newPost)
+    rerenderEntireTree(state)
+  }
 
   export default state

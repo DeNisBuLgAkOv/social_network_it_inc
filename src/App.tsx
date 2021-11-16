@@ -9,6 +9,7 @@ import { StatePropsType } from './redux/state';
 
 type PropsType={
   state: StatePropsType
+  addPost:(postMessage:string)=>void
 }
   
 function App(props:PropsType) {
@@ -19,7 +20,7 @@ function App(props:PropsType) {
           <Navbar/>
           <div className="app_wrapper_content">
             <Route path ="/dialogs" render={()=><Dialogs  dialogsPage= {props.state.dialogsPage}  />}/>
-            <Route path="/profile" render={()=><Profile profilePage= {props.state.profilePage}/>}/>
+            <Route path="/profile" render={()=><Profile profilePage= {props.state.profilePage} addPost={props.addPost}/>}/>
           </div>
 
       </div>
