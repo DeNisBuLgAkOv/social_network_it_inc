@@ -6,15 +6,20 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
 type PropsType = {
+  updateNewPostText:(newText:string)=>void
   profilePage: ProfilePagePropsType
-  addPost:(postMessage:string) =>void
+  addPost:() =>void
 }
 const Profile =(props:PropsType)=>{
  
     return(
       <div >
           <ProfileInfo/>
-          <MyPosts posts={props.profilePage.posts} addPost={props.addPost}/>
+          <MyPosts posts={props.profilePage.posts} 
+          addPost={props.addPost}
+          newPostText= {props.profilePage.newPostText}
+          updateNewPostText={props.updateNewPostText}
+          />
       </div>
     )
 }

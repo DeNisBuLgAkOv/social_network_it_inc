@@ -23,11 +23,10 @@ export  type MessagesPropsType={
   
 export type ProfilePagePropsType={
   posts:  Array<PostsType>
+  newPostText: string
 }
 
-export type ProfilePropstype={
-  profilePage:ProfilePagePropsType
-}
+
 export type DialogsPageType={
   dialogs:Array<DialogsPropsType>
   messages:Array<MessagesPropsType>
@@ -49,7 +48,9 @@ export type MainStateType={
         {id:2, message:"hid", likeCount:12},
         {id:3, message:"hifddf", likeCount:20},
         {id:4, message:"hisdfdsf", likeCount:14},
-      ]
+      ],
+      newPostText:"it=com"
+
     },
     dialogsPage:{
       dialogs :[
@@ -69,14 +70,19 @@ export type MainStateType={
 
 
 
- export let addPost =(postMessage:string)=>{
+ export let addPost =()=>{
     let newPost:PostsType={
       id:5,
-      message:postMessage,
+      message:state.profilePage.newPostText,
       likeCount:0
     }
     state.profilePage.posts.push(newPost)
     rerenderEntireTree(state)
+  }
+
+  export let updateNewPostText =(newText:string)=>{
+      state.profilePage.newPostText=newText
+      rerenderEntireTree(state)
   }
 
   export default state
