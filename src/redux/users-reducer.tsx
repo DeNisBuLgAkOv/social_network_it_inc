@@ -4,12 +4,15 @@ import React from "react";
 export type UsersType = {
     id: number
     followed: boolean
-    fullName:string
+    name:string
     status: string
     location: locationPropsType
-    photoUrl:string
+    photos:PhotoPropsType
   }
-  
+export type PhotoPropsType = {
+   small:string
+   big:string
+}
 
 
 export type locationPropsType = {

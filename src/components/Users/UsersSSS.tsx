@@ -5,36 +5,38 @@ import axios from "axios";
 import userPhoto from "../../assets/imges/user.png"
 
 type PropsType ={
+    users:UsersType[]
     follow:(userId:number)=>void
     unfollow:(userId:number)=>void
     setUsers:(users:any)=>void
-    users:UsersType[]
 }
 
+const UsersSSS =(props:PropsType)=>{
 
-class Users extends  React.Component<PropsType>{
-
-    componentDidMount() {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users")
-            .then(response => {
-                this.props.setUsers(response.data.items)
-            })
+    let getUsers = ()=>{
+        if(props.users.length ===0) {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+                .then(response =>{
+                    props.setUsers(response.data.items)
+                })
     }
 
-    render(){
-            return(
-                <div>
 
-                    {this.props.users.map( u => <div key={u.id}>
+
+    }
+    return(
+        <div>
+            <button onClick={getUsers}>Get users</button>
+            {props.users.map( u => <div key={u.id}>
                 <span>
                     <div>
                         <img src={u.photos.small != null ? u.photos.small : userPhoto} className={styles.photo}/>
                     </div>
                     <div>
-                        {u.followed ? <button onClick={()=>{this.props.unfollow(u.id)}}> UNFollow</button>:<button onClick={()=>{this.props.follow(u.id)}}>Follow</button>}
+                        {u.followed ? <button onClick={()=>{props.unfollow(u.id)}}> UNFollow</button>:<button onClick={()=>{props.follow(u.id)}}>Follow</button>}
                     </div>
                 </span>
-                        <span>
+                <span>
                     <span>
                         <div>{u.name}</div>
                         <div>{u.status}</div>
@@ -45,11 +47,9 @@ class Users extends  React.Component<PropsType>{
                     </span>
                 </span>
 
-                    </div>)}
-                </div>
-            )
-        }
-
+                </div>)}
+        </div>
+    )
 }
 
-export default Users
+export default  UsersSSS
