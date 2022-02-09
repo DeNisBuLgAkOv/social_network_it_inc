@@ -3,6 +3,7 @@ import styles from "./users.module.css";
 import userPhoto from "../../assets/imges/user.png";
 // import UsersAPIComponent from "./UsersAPIComponent";
 import {UsersType} from "../../redux/users-reducer";
+
 type PropsType ={
     follow:(userId:number)=>void
     unfollow:(userId:number)=>void

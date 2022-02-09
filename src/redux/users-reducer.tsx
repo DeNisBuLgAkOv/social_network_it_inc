@@ -26,14 +26,16 @@ export type locationPropsType = {
       pageSize: number
       totalUsersCount:number
       currentPage:number
+      isFetching:boolean
   }
 
 
 let initialState: InitialStateType = {
     users:[],
-    pageSize: 10,
+    pageSize: 5,
     totalUsersCount:20,
-    currentPage:1
+    currentPage:1,
+    isFetching:true
   }
 
 export const usersReducer =(state=initialState,action: MainActionType)=>{
@@ -69,11 +71,15 @@ export const usersReducer =(state=initialState,action: MainActionType)=>{
         case "SET_TOTAL_USERS_COUNT":{
             return {...state,totalUsersCount:action.totalUsersCount }
         }
+        case "TOGGLE_IS_FETCHING":{
+            return {...state,isFetching:action.isFetching }
+        }
         default:return state
     }
 }
 type MainActionType = ReturnType<typeof followAC > | ReturnType<typeof  unFollowAC>
     | ReturnType<typeof setUsersAC > | ReturnType<typeof setCurrentPageAC  > | ReturnType<typeof setUsersTotalCountAC>
+    | ReturnType<typeof setIsFetchingAC>
 
 export let followAC =(userId:number)=> {
   return {
@@ -94,4 +100,10 @@ export let setCurrentPageAC = (currentPage:number)=>{
 }
 export let setUsersTotalCountAC = (totalUsersCount:number)=>{
     return{type:"SET_TOTAL_USERS_COUNT",totalUsersCount}as const
+}
+
+export let setIsFetchingAC = (isFetching:boolean)=>{
+    return{
+        type:"TOGGLE_IS_FETCHING", isFetching
+    }as const
 }
