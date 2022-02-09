@@ -30,11 +30,9 @@ export type locationPropsType = {
 
 
 let initialState: InitialStateType = {
-    users:[
-
-    ],
-    pageSize: 0,
-    totalUsersCount:0,
+    users:[],
+    pageSize: 10,
+    totalUsersCount:20,
     currentPage:1
   }
 
@@ -63,7 +61,7 @@ export const usersReducer =(state=initialState,action: MainActionType)=>{
           }
         }
         case "SET_USERS":{
-         return {...state, users:action.users}
+         return {...state, users: action.users}
         }
         case "SET_CURRENT_PAGE":{
             return {...state,currentPage:action.currentPage }
