@@ -11,7 +11,7 @@ const ProfileInfo =()=>{
             <img src="https://cdn1.ozone.ru/s3/multimedia-a/c1200/6057606094.jpg"/>
         </div>
         <div className={s.descriptionBlock}>
-                ava+ description
+
         </div>
     </div>    
 )

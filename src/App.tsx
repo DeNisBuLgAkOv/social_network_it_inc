@@ -15,7 +15,7 @@ function App() {
           <Navbar/>
           <div className="app_wrapper_content">
             <Route path ="/dialogs" render={()=><DialogsContainer />}/>
-            <Route path="/profile" render={()=>
+            <Route exact path="/profile" render={()=>
             <Profile/>}/>
             <Route path ="/users" render={()=><UsersContainer/>}/>
           </div>

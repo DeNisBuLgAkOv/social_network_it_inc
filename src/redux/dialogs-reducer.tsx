@@ -22,10 +22,9 @@ export type DialogsPageType = {
 
 let initialState:DialogsPageType ={
   dialogs: [
-    { id: 1, name: "Dimysh" },
+    { id: 1, name: "Alex" },
     { id: 2, name: "Den" },
-    { id: 3, name: "ArtЁm" },
-    { id: 4, name: "Slava" },
+    { id: 3, name: "Slava" },
   ],
   messages: [
     { id: 1, message: "Hi" },

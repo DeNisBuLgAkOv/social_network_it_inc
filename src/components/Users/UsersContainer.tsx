@@ -9,7 +9,7 @@ import {
     unFollowAC,
     UsersType
 } from "../../redux/users-reducer";
-import {Dispatch} from "redux";
+
 import axios from "axios";
 import Users from "./Users";
 import preloader from "../../assets/imges/preloader.svg"
