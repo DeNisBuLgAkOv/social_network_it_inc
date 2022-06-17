@@ -6,3 +6,8 @@
 .selectedPage{
     font-weight: bold;
 }
+
+span{
+    cursor: pointer;
+    margin-left: 5px;
+}
